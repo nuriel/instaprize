@@ -1,7 +1,7 @@
 Instaprize::Application.routes.draw do
   get "screen/index"
 
-  get "screen/resault"
+  get "screen/result"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

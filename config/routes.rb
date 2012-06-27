@@ -2,7 +2,11 @@ Instaprize::Application.routes.draw do
   get "screen/index"
 
   get "screen/result"
+  
+  match "session/callback" => 'sessions#callback'
 
+  root :to => "sessions#connect"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

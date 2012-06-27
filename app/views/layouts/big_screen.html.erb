@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instaprize</title>
-    <%= csrf_meta_tags %>
+		<%= include_gon %>    
+		<%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -33,9 +34,6 @@
           <a class="brand" href="#">Instaprize</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -47,10 +45,23 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header">Latest Votes</li>
+							<div class="row thumbnail">
+								<img class="pull-left" src="http://placehold.it/50x50" alt="">
+								comment/icon
+							</div>
+							<div class="row thumbnail vote-box">
+								<img class="pull-left" src="http://placehold.it/50x50" alt="">
+								comment/icon
+							</div>
+							<div class="row thumbnail">
+								<img class="pull-left" src="http://placehold.it/50x50" alt="">
+								comment/icon
+							</div>
+							<div class="row thumbnail">
+								<img class="pull-left" src="http://placehold.it/50x50" alt="">
+								comment/icon
+							</div>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

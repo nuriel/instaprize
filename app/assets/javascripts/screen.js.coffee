@@ -26,5 +26,6 @@ initializeTimer = (sec = 75) ->
 		$('#progress').css('width', "#{percentage}%")
 		$('#progress_bar').attr('class', 'progress progress-warning active progress-striped') if sec is 20
 		$('#progress_bar').attr('class', 'progress progress-danger active progress-striped') if sec is 10
+		clearInterval(timer) if sec is 0
 	, 1000)
 		

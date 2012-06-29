@@ -5,4 +5,4 @@ Instagram.configure do |config|
   config.client_secret = "9c6e74c74cc64c2ca372bfbd12a00989"
 end
 
-CALLBACK_URL = "http://instaprize-dev.herokuapp.com"
+CALLBACK_URL = "http://instaprize-dev.hrokuapp.com/session/callback"

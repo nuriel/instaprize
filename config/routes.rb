@@ -4,6 +4,7 @@ Instaprize::Application.routes.draw do
   get "screen/result"
 
   get "mobile/index"
+  get "mobile/vote"
   
   match "session/callback" => 'sessions#callback'
 

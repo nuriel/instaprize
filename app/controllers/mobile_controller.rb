@@ -8,6 +8,11 @@ class MobileController < ApplicationController
   end
   
   def vote
+    Pusher['test_channel'].trigger('greet', {
+      :greeting => "Hello there voter!"
+    })
+    
+    redirect_to :index
     # send vote get reply
     # if succ
       # if vote up add points

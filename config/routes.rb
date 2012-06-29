@@ -2,6 +2,8 @@ Instaprize::Application.routes.draw do
   get "screen/index"
 
   get "screen/result"
+
+  get "mobile/index"
   
   match "session/callback" => 'sessions#callback'
 

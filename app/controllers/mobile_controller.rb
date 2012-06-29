@@ -1,5 +1,7 @@
 class MobileController < ApplicationController
   def index
+    #@vote = Vote.new()
+    
     # get state
     # if in "voting mode" set voting flag to true
     # get current voting and last votes

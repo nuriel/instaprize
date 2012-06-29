@@ -1,0 +1,14 @@
+<div class="row-fluid" id="name">
+	<h2><img src='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/186381_684170295_1497026563_q.jpg' alt="">Picture title</h2>
+</div>
+<div id="main_pic_container" class="row-fluid">
+	<%= image_tag "http://placehold.it/400x400", alt: 'instaprize main image', id: 'pic_main', class: 'thumbnail center', size: '400x400' %>
+</div>
+
+<div class="row-fluid" id="name">
+	<%= image_tag 'clock.png', size: '30x30', class: 'pull-left' %>
+	<h3><span id="time_left"></span> sec.</h3>
+	<div id="progress_bar" class="progress progress-success active progress-striped">
+	  <div id="progress" class="bar" style="width: 100%;"></div>
+	</div>
+</div>

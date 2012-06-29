@@ -14,6 +14,8 @@ gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
 gem 'faraday', '0.7.6'
 gem 'gon'
 
+gem 'jquery_mobile_rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

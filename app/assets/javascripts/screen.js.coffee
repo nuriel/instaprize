@@ -14,11 +14,15 @@ $(document).ready ->
 		$('#pic_thumb').attr('src',pics[0].images.thumbnail.url)
 		for i in [1..9]
 			$('#pic_strip').append("<img class='thumbnail pull-left' src='#{pics[i].images.thumbnail.url}' alt='' height=50 width=50>")
-		
+	
+	#get state and then	
 	initializeTimer()
 	
-	
-
+	$("#add_div").click( (event) ->
+		$('form input[name="vote[vote_index]"]').val($(this).data('vote-index'))
+		$('form').submit()
+	#	$(this).slideUp()
+	)
 
 initializeTimer = (sec = 75) ->
 	full_time = sec

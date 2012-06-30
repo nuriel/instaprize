@@ -10,15 +10,13 @@ class MobileController < ApplicationController
   end
   
   def create
-    # Pusher['test_channel'].trigger('vote', {
-    #   vote_index: :params[:vote_index],
-    #   comment: :params[:comment]
-    # })
+    Pusher['test_channel'].trigger('vote', {
+       vote_index: :params[:vote_index],
+       comment: :params[:comment]
+    })
     
-    @vote = Vote.create!(vote_index: :params[:vote_index], comment: :params[:comment])
-    
-    
-    
+    uid = request.session_options[:id]
+
     render 'index'
     # send vote get reply
     # if succ

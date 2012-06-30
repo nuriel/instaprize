@@ -5,16 +5,6 @@
 $(".votes").click( (event) ->
 	$('form input[name="vote[vote_index]"]').val($(this).data('vote-index'))
 	$('form').submit()
+	channel.trigger("client-mouse-moved", {x:state.currentX, y: state.currentY});
 #	$(this).slideUp()
-	false
 )
-
-$("form").submit ->
-  valuesToSubmit = $(this).serialize()
-  $.ajax(
-    url: $(this).attr("action")
-    data: valuesToSubmit
-    dataType: "JSON"
-  ).success (json) ->
-
-  false

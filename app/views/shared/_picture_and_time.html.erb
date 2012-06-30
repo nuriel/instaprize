@@ -2,7 +2,11 @@
 	<h2><img src='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/186381_684170295_1497026563_q.jpg' alt="">Picture title</h2>
 </div>
 <div id="main_pic_container" class="row-fluid">
-	<%= image_tag "http://placehold.it/400x400", alt: 'instaprize main image', id: 'pic_main', class: 'thumbnail center', size: '400x400' %>
+	<%= 
+		size ||= '400x400'
+		image_tag "http://placehold.it/400x400", alt: 'instaprize main image', id: 'pic_main', class: 'thumbnail center', size: size 
+			
+	%>
 </div>
 
 <div class="row-fluid" id="name">

@@ -1,8 +1,8 @@
-<h1>Listing votes</h1>
+<h1>All Votes For Mazeh9</h1>
 
 <table>
   <tr>
-    <th>Vote index</th>
+    <th>Vote</th>
     <th>Comment</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @votes.each do |vote| %>
   <tr>
-    <td><%= vote.vote_index %></td>
+    <td><%= Rails.application.config.vote_options[vote.vote_index ? vote.vote_index : 1][:name] %></td>
     <td><%= vote.comment %></td>
     <td><%= link_to 'Show', vote %></td>
     <td><%= link_to 'Edit', edit_vote_path(vote) %></td>

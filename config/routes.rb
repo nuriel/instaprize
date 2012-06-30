@@ -12,7 +12,7 @@ Instaprize::Application.routes.draw do
   
   match "session/callback" => 'sessions#callback'
 
-  root :to => "sessions#connect"
+  root :to => "mobile#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -26,7 +26,7 @@
 	 		var pusher = new Pusher('<%= Pusher.key %>'); // uses your API KEY
 	 		var channel = pusher.subscribe('test_channel');
 	 		channel.bind('greet', function(data) {
-	   		alert(data.vote_index + " - " + data.comment);
+	   		$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + data.vote_index + " / " + data.comment+'</div>');
 	 		});
 	 	</script>
   </head>

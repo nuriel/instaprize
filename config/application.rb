@@ -58,5 +58,11 @@ module Instaprize
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.vote_options = [ 
+      { name: "dontlike", value: -1 },
+      { name: "like", value: 1 },
+      { name: "so-so", value: 0 }
+    ]
   end
 end

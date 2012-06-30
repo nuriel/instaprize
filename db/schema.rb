@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627090426) do
+ActiveRecord::Schema.define(:version => 20120628113000) do
 
   create_table "pictures", :force => true do |t|
     t.string   "instagram_id"
@@ -25,5 +25,14 @@ ActiveRecord::Schema.define(:version => 20120627090426) do
   end
 
   add_index "pictures", ["instagram_id"], :name => "index_pictures_on_instagram_id"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "vote_index"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["vote_index"], :name => "index_votes_on_vote_index"
 
 end

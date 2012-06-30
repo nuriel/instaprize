@@ -1,13 +1,15 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-pics = gon.pics.data if gon?
+
+
+# #pics = gon.pics.data if gon?
 @yourMom = (location) ->
   console.log location
 
 $(document).ready ->
-	if pics 
-		currentState = gon.state if gon
+	if pics? 
+		currentState = gon.state if gon?
 		$('#pic_main').attr('src',pics[0].images.standard_resolution.url)
 		$('#pic_thumb').attr('src',pics[0].images.thumbnail.url)
 		for i in [1..9]

@@ -8,5 +8,6 @@ class CreateVotes < ActiveRecord::Migration
     end
     
     add_index :votes, :vote_index
+    
   end
 end

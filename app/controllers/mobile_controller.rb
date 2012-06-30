@@ -1,18 +1,25 @@
 class MobileController < ApplicationController
+  respond_to :js, :html
+  
   def index
-    #@vote = Vote.new()
+    @vote = Vote.new()
     
     # get state
     # if in "voting mode" set voting flag to true
     # get current voting and last votes
   end
   
-  def vote
-    Pusher['test_channel'].trigger('greet', {
-      :greeting => "Hello there voter!"
-    })
+  def create
+    # Pusher['test_channel'].trigger('vote', {
+    #   vote_index: :params[:vote_index],
+    #   comment: :params[:comment]
+    # })
     
-    redirect_to :index
+    @vote = Vote.create!(vote_index: :params[:vote_index], comment: :params[:comment])
+    
+    
+    
+    render 'index'
     # send vote get reply
     # if succ
       # if vote up add points

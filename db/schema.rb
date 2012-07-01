@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628113000) do
+ActiveRecord::Schema.define(:version => 20120630043542) do
 
   create_table "pictures", :force => true do |t|
     t.string   "instagram_id"

@@ -12,9 +12,12 @@ gem 'thin'
 
 gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
 gem 'faraday', '0.7.6'
-gem 'gon'
 
-gem 'jquery_mobile_rails'
+gem 'rabl'
+# Also add either `json` or `yajl-ruby` as the JSON parser
+gem 'yajl-ruby'
+
+gem 'gon'
 
 gem 'pusher'
 

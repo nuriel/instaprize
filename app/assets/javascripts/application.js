@@ -11,6 +11,9 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require nexu-min
+//= require ns-min
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require jquery.flot
 //= require_tree .

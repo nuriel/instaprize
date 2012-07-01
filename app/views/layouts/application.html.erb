@@ -14,6 +14,10 @@
 
     <!-- Le styles -->
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
 
     <!-- Le fav and touch icons -->
     <link href="images/favicon.ico" rel="shortcut icon">
@@ -23,12 +27,13 @@
 
 		<script src="http://js.pusherapp.com/1.9/pusher.min.js"></script>
 		<script type="text/javascript">
-	 		var pusher = new Pusher('<%= Pusher.key %>'); // uses your API KEY
-	 		var channel = pusher.subscribe('test_channel');
-	 		channel.bind('greet', function(data) {
-	   		$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + data.vote_index + " / " + data.comment+'</div>');
-	 		});
-	 	</script>
+			pusher = new Pusher("<%= Pusher.key %>")
+			channel = pusher.subscribe("test_channel");
+			channel.bind("vote", function(data) {
+			  $("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + data.vote_index + ' / ' + data.comment + '</div>');
+				// update graph
+			});
+		</script>
   </head>
   <body>
 
@@ -81,10 +86,7 @@
 
     </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
+
 
 		
 	</body>

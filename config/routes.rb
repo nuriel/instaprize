@@ -8,9 +8,10 @@ Instaprize::Application.routes.draw do
   get "mobile/index"
   get "mobile/vote"
   
-  post "mobile/vote"
+  get "mobile/nexu"
   
   match "session/callback" => 'sessions#callback'
+  match "session/connect" => 'sessions#connect'
 
   root :to => "mobile#index"
   

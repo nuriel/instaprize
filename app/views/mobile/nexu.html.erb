@@ -1,0 +1,41 @@
+<div id="controls" style="margin-bottom:20px;width: 100%; height: 100px">
+    <div id="managerControls" style="height: 100%;width:33%; float: left; border-width: 1px; border-style: dotted">
+        <div style="margin-left: 40%">Manager</div>
+        <input id="btnSendState1ToScreen" type="button" value="Send State 1 to Screen" ><br />
+        <input id="btnSendState3ToAll" type="button" value="Send State 3 to All" ><br />
+    </div>
+    <div id="screenControls" style="height: 100%;width:33%; float: left; border-width: 1px; border-style: dotted">
+        <div style="margin-left: 40%">Screen</div>
+        <input id="btnSendState2ToClient" type="button" value="Send State 2 to Client" ><br />
+    </div>
+    <div id="clientControls" style="height: 100%;width:33%; float: left; border-width: 1px; border-style: dotted">
+        <div style="margin-left: 40%">Client</div>
+    </div>
+</div>
+
+
+<div style="width: 100%; overflow: auto">
+    <div id="manager" style="min-height: 100px;width:33%; float: left; border-width: 1px; border-style: dotted;">
+        <div id="managerText" style="margin-left: 40%">Manager</div>
+        <div style="margin-left: 38%"><input id="btnManagerConnect" type="button" value="Connect" /><br /></div>
+        <div id="managerMessages"></div>
+    </div>
+    <div id="screen" style="min-height: 100px;height: 100%;width:33%; float: left; border-width: 1px; border-style: dotted">
+        <div id="screenText" style="margin-left: 40%">Screen</div>
+        <div style="margin-left: 38%"><input id="btnScreenConnect" type="button" value="Connect" /><br /></div>
+        <div id="screenMessages">
+
+        </div>
+    </div>
+
+    <div id="client" style="min-height: 100px;height: 100%;width:33%; float: left; border-width: 1px; border-style: dotted">
+        <div id="clientText" style="margin-left: 40%">Client</div>
+        <div style="margin-left: 38%"><input id="btnClientConnect" type="button" value="Connect" /><br /></div>
+        <div id="clientMessages"></div>
+    </div>
+
+</div>
+
+<div id="connectedClients">
+
+</div>

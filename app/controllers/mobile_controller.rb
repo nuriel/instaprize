@@ -9,15 +9,10 @@ class MobileController < ApplicationController
     # get current voting and last votes
   end
   
-  def create
-    Pusher['test_channel'].trigger('vote', {
-       vote_index: :params[:vote_index],
-       comment: :params[:comment]
-    })
+  def nexu
     
     uid = request.session_options[:id]
 
-    render 'index'
     # send vote get reply
     # if succ
       # if vote up add points

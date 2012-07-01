@@ -42,9 +42,12 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(params[:vote])
     
-    Pusher['test_channel'].trigger('greet', {
-       vote_index: params[:vote][:vote_index],
-       comment: params[:vote][:comment]
+    vote_index = params[:vote][:vote_index]
+    
+    Pusher['test_channel'].trigger!('vote', {
+      vote_index: vote_index,
+      comment: params[:vote][:comment],
+      value: vote_index == 1 ? 1 : 0
     })
     
     respond_to do |format|

@@ -129,7 +129,7 @@ function clientHandler(state, payload){
 		currentState = STATES.STATE1;
 		$('#results_modal').modal('hide');
 		startProgressBar(netTime);
-    
+		$('#pic_main').attr('src',pics[0].images.standard_resolution.url)
 	}  
 	else if (state == STATES.STATE2){
 		currentState = STATES.STATE2;

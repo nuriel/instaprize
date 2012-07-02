@@ -22,9 +22,9 @@ class ContestsController < ApplicationController
     
     pictures = client.tag_recent_media('mazeh9art')
     
-    pictures.each do |p|
-      picture = Picture.find_or_create_by()
-      
+    pictures.data.each do |p|
+      picture = Picture.find_or_initialize_by_instagram_id(p.id)
+      picture.update_attributes(title: p.caption.text, url: p.images.standard_resolution )
     end
     
     respond_to do |format|

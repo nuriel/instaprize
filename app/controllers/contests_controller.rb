@@ -13,9 +13,9 @@ class ContestsController < ApplicationController
   # GET /contests/1
   # GET /contests/1.json
   def show
-    @contest = Contest.find(params[:id])
-    
     redirect_to :controller => 'sessions', :action => 'connect' if !session[:access_token] 
+
+    @contest = Contest.find(params[:id])
 
     client = Instagram.client(:access_token => session[:access_token])
     @user = client.user

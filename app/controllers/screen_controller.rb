@@ -8,8 +8,6 @@ class ScreenController < ApplicationController
     @user = client.user
     
     
-    gon.state = Contest.first.current_state
-    
     gon.user = @user
     gon.pics = client.tag_recent_media('mazeh9art')
     gon.votes = Vote.all

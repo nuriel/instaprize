@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120630043542) do
+ActiveRecord::Schema.define(:version => 20120701230014) do
+
+  create_table "contests", :force => true do |t|
+    t.string   "title"
+    t.integer  "current_state"
+    t.integer  "current_picture"
+    t.string   "current_picture_instagram"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "pictures", :force => true do |t|
     t.string   "instagram_id"

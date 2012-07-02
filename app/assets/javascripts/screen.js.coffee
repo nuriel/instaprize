@@ -11,7 +11,8 @@ $(document).ready ->
 	$(".votes").click( (event) ->
 		vote_index = $(this).data('vote-index')
 		$('form input[name="vote[vote_index]"]').val(vote_index)
-		$('form').submit()
+		console.log($('form').submit())
+		
 	)
 	
 	if pics? 
@@ -22,11 +23,14 @@ $(document).ready ->
 			$('#pic_strip').append("<img class='thumbnail pull-left' src='#{pics[i].images.thumbnail.url}' alt='' height=50 width=50>")
 		
 	
+	setUpNexu()
+	
 	#get state and then	
-	initializeTimer(channel)
+	scoreArr = [ 0, 0, 3 ]
+	generateFlot(scoreArr)
+	startProgressBar()
 
-
-initializeTimer = (channel, sec = 90) ->
+startProgressBar = (sec = 90) ->
 	full_time = sec
 	$('#time_left').text(sec)
 	timer = setInterval( -> 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  current_state: 1
+  current_picture: 1
+  current_picture_instagram: MyString
+
+two:
+  title: MyString
+  current_state: 1
+  current_picture: 1
+  current_picture_instagram: MyString

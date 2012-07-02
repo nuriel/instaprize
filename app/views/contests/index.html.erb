@@ -1,0 +1,29 @@
+<h1>Listing contests</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Current state</th>
+    <th>Current picture</th>
+    <th>Current picture instagram</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contests.each do |contest| %>
+  <tr>
+    <td><%= contest.title %></td>
+    <td><%= contest.current_state %></td>
+    <td><%= contest.current_picture %></td>
+    <td><%= contest.current_picture_instagram %></td>
+    <td><%= link_to 'Show', contest %></td>
+    <td><%= link_to 'Edit', edit_contest_path(contest) %></td>
+    <td><%= link_to 'Destroy', contest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contest', new_contest_path %>

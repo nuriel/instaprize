@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_tag :div, :class => "row-fluid" do -%>
+  <h1 id="contest_title"><%= @contest.title %></h1>
+	<small id="contest_test">State: <span id="state"><%= @contest.current_state %></span></small>
+	<h3>Time Left: <span id="contest_time">0</span></h3>
+	<a class='btn' id='stop_contest'>STOP!</a>
+<% end -%>
+
+<br><br>
+
+<!-- <%= link_to 'Edit', edit_contest_path(@contest) %> |
+<%= link_to 'Back', contests_path %> -->

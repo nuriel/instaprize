@@ -40,6 +40,8 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
+    #@vote = Picture.find(Contest.first.current_picture).votes.new(params[:vote])
+    
     @vote = Vote.new(params[:vote])
     
     vote_index = params[:vote][:vote_index]

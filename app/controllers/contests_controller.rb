@@ -20,6 +20,13 @@ class ContestsController < ApplicationController
     client = Instagram.client(:access_token => session[:access_token])
     @user = client.user
     
+    pictures = client.tag_recent_media('mazeh9art')
+    
+    pictures.each do |p|
+      picture = Picture.find_or_create_by()
+      
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contest }

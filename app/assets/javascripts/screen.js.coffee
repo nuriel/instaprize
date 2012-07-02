@@ -4,8 +4,6 @@
 
 
 pics = gon.pics.data if gon?
-@yourMom = (location) ->
-  console.log location
 
 $(document).ready ->
 	
@@ -18,21 +16,4 @@ $(document).ready ->
 		
 	
 	setUpNexu()
-	
-	#get state and then	
-	scoreArr = [ 0, 0, 0 ]
-	generateFlot(scoreArr)
-#	startProgressBar()
 
-# 
-# startProgressBar = (sec = 90) ->
-# 	full_time = sec
-# 	$('#time_left').text(sec)
-# 	timer = setInterval( -> 
-# 		$('#time_left').text(--sec)
-# 		percentage = 100*(sec/full_time)
-# 		$('#progress').css('width', "#{percentage}%")
-# 		$('#progress_bar').attr('class', 'progress progress-warning active progress-striped') if sec is 30
-# 		$('#progress_bar').attr('class', 'progress progress-danger active progress-striped') if sec is 15
-# 		clearInterval(timer) if sec is 0
-# 	, 1000)

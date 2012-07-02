@@ -5,8 +5,8 @@ var STATES = {
 }
 
 var currentState = STATES.STATE1;
-var totalTime = 25;
-var showScoreFor = 5;
+var totalTime = 90;
+var showScoreFor = 15;
 var sec = totalTime - showScoreFor
 var role;
 var results = [ 0, 0, 0]
@@ -43,6 +43,10 @@ function setUpNexu(){
 		  keyboard: false,
 			show: false
 		})
+		
+		scoreArr = [ 0, 0, 0 ];
+		generateFlot(scoreArr);
+		
 		
 		// check if we are in TIMER mode
 		if ($('#contest_time').length > 0) {
@@ -95,7 +99,8 @@ function setUpNexu(){
 				vote_index = $(this).data('vote-index');
 				$('form input[name="vote[vote_index]"]').val(vote_index);
 				$('form').submit();
-
+				client.setState(Nexu.SocketChannels.SCREEN, STATES.STATE3, { vote_index: vote_index, comment: $('#vote_comment').val()});
+				
 			});
 			
 			
@@ -120,8 +125,6 @@ function setUpNexu(){
 
 
 function clientHandler(state, payload){
-	startProgressBar(netTime);
-
 	if (state == STATES.STATE1) {
 		currentState = STATES.STATE1;
 		$('#results_modal').modal('hide');
@@ -137,12 +140,19 @@ function clientHandler(state, payload){
 function screenHandler(state, payload){
 		sec = payload.time;
 		if (state == STATES.STATE1) {
+			startProgressBar(netTime);
+			currentState = STATES.STATE1;
 		}
 		else if (state == STATES.STATE2){
+			currentState = STATES.STATE2;
 			
 		}  
 		else if (state == STATES.STATE3){
-			$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + payload.vote_index + ' / ' + payload.comment + '</div>');
+			if (currentState == STATES.STATE1) { // check we are indeed in voting mode
+				$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + payload.vote_index + ' / ' + payload.comment + '</div>');
+				scoreArr[payload.vote_index] = 1 + scoreArr[payload.vote_index];
+				generateFlot(scoreArr);
+			}
 		}
 }
 

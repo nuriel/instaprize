@@ -8,12 +8,6 @@ pics = gon.pics.data if gon?
   console.log location
 
 $(document).ready ->
-	$(".votes").click( (event) ->
-		vote_index = $(this).data('vote-index')
-		$('form input[name="vote[vote_index]"]').val(vote_index)
-		console.log($('form').submit())
-		
-	)
 	
 	if pics? 
 		currentState = gon.state
@@ -26,18 +20,19 @@ $(document).ready ->
 	setUpNexu()
 	
 	#get state and then	
-	scoreArr = [ 0, 0, 3 ]
+	scoreArr = [ 0, 0, 0 ]
 	generateFlot(scoreArr)
-	startProgressBar()
+#	startProgressBar()
 
-startProgressBar = (sec = 90) ->
-	full_time = sec
-	$('#time_left').text(sec)
-	timer = setInterval( -> 
-		$('#time_left').text(--sec)
-		percentage = 100*(sec/full_time)
-		$('#progress').css('width', "#{percentage}%")
-		$('#progress_bar').attr('class', 'progress progress-warning active progress-striped') if sec is 30
-		$('#progress_bar').attr('class', 'progress progress-danger active progress-striped') if sec is 15
-		clearInterval(timer) if sec is 0
-	, 1000)
+# 
+# startProgressBar = (sec = 90) ->
+# 	full_time = sec
+# 	$('#time_left').text(sec)
+# 	timer = setInterval( -> 
+# 		$('#time_left').text(--sec)
+# 		percentage = 100*(sec/full_time)
+# 		$('#progress').css('width', "#{percentage}%")
+# 		$('#progress_bar').attr('class', 'progress progress-warning active progress-striped') if sec is 30
+# 		$('#progress_bar').attr('class', 'progress progress-danger active progress-striped') if sec is 15
+# 		clearInterval(timer) if sec is 0
+# 	, 1000)

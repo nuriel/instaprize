@@ -5,13 +5,9 @@ class ScreenController < ApplicationController
     redirect_to :controller => 'sessions', :action => 'connect' if !session[:access_token] 
 
     client = Instagram.client(:access_token => session[:access_token])
-    @user = client.user
+    @instagram_user = client.user
     
-    state = 1
-    
-    gon.state = Contest.first.current_state
-    
-    gon.user = @user
+    gon.instagram_user = @instagram_user
     gon.pics = client.tag_recent_media('mazeh9art')
     gon.votes = Vote.all
     

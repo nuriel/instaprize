@@ -55,6 +55,10 @@ function setUpNexu(){
 	      console.log(JSON.stringify(payload));
 	    });
 			var sendState = false;
+			$("#stop_contest").click(function(){
+				clearInterval(timer2);
+				
+			});
 			timer2 = setInterval(function() {
 					
 					if (sec == showScoreFor) {

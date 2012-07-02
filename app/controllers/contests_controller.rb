@@ -15,7 +15,10 @@ class ContestsController < ApplicationController
   def show
     @contest = Contest.find(params[:id])
     
-    
+    redirect_to :controller => 'sessions', :action => 'connect' if !session[:access_token] 
+
+    client = Instagram.client(:access_token => session[:access_token])
+    @user = client.user
     
     respond_to do |format|
       format.html # show.html.erb

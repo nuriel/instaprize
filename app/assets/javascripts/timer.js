@@ -4,7 +4,8 @@ var STATES = {
     STATE3: 3		// single vote event
 }
 
-var VOTES = ['dontlike','like','so-so']
+var VOTES = ['dont like (-1)','like (+1)','so-so']
+var STATUS = ['error','success','block']
 
 var currentState = STATES.STATE1;
 var totalTime = 90;
@@ -161,7 +162,8 @@ function screenHandler(state, payload){
 		}  
 		else if (state == STATES.STATE3){
 			if (currentState == STATES.STATE1) { // check we are indeed in voting mode
-				$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/70x70" alt=""><h5>' + VOTES[payload.vote_index] + '</h5>' + payload.comment + '</div>');
+				status = STATUS[payload.vote_index];
+				$("#ticker").prepend('<div class="row thumbnail alert alert-' + status + '"><img class="pull-left" src="http://placehold.it/70x70" alt=""><h5>' + VOTES[payload.vote_index] + '</h5>' + payload.comment + '</div>');
 				scoreArr[payload.vote_index] = 1 + scoreArr[payload.vote_index];
 				generateFlot(scoreArr);
 			}

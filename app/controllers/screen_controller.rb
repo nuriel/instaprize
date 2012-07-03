@@ -16,8 +16,18 @@ class ScreenController < ApplicationController
   
   def admin
     @pictures = Contest.first.getNextPictures()
+
+    if @pictures.blank?
+      Picture.where(:voted => true).update_all(:voted => false)
+      Contest.first.current_picture = 0
+      Contest.first.save()
+      @pictures = Contest.first.getNextPictures()
+    else 
+      @pictures.first.voted = true
+      @pictures.first.save()
+    end
     
-    
+    @pictures
   end
   
 end

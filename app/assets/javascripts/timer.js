@@ -4,6 +4,8 @@ var STATES = {
     STATE3: 3		// single vote event
 }
 
+var VOTES = ['dontlike','like','so-so']
+
 var currentState = STATES.STATE1;
 var totalTime = 90;
 var showScoreFor = 15;
@@ -70,6 +72,8 @@ function setUpNexu(){
 				manager.setState(Nexu.SocketChannels.ALL, STATES.STATE1, { 
 					all_pics: data.pictures 
 				});
+				console.log(data);
+				
 			});
 			timer2 = setInterval(function() {
 
@@ -136,10 +140,19 @@ function clientHandler(state, payload){
 }
 
 function screenHandler(state, payload){
-		sec = payload.time;
 		if (state == STATES.STATE1) {
+			currentState = STATES.STATE1;
 			$('#pic_main').attr('src',payload.all_pics[0].picture.url);
 			$('#picture_title').text(payload.all_pics[0].picture.title);
+			$('#pic_thumb').attr('src',payload.all_pics[0].picture.url)
+			$('#ticker').html("");
+			scoreArr = [0,0,0];
+			generateFlot(scoreArr);
+			$('#pic_strip').html("<img class='thumbnail pull-left' src='" + payload.all_pics[0].picture.url + "' alt='' height=75 width=75>");  
+			for(i=1;i<(payload.all_pics.length);i++)
+		   {
+				$('#pic_strip').append("<img class='thumbnail pull-left' src='" + payload.all_pics[i].picture.url + "' alt='' height=50 width=50>");  
+		   }
 			startProgressBar(netTime - 2);
 		}
 		else if (state == STATES.STATE2){
@@ -148,7 +161,7 @@ function screenHandler(state, payload){
 		}  
 		else if (state == STATES.STATE3){
 			if (currentState == STATES.STATE1) { // check we are indeed in voting mode
-				$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/50x50" alt="">' + payload.vote_index + ' / ' + payload.comment + '</div>');
+				$("#ticker").prepend('<div class="row thumbnail"><img class="pull-left" src="http://placehold.it/70x70" alt=""><h5>' + VOTES[payload.vote_index] + '</h5>' + payload.comment + '</div>');
 				scoreArr[payload.vote_index] = 1 + scoreArr[payload.vote_index];
 				generateFlot(scoreArr);
 			}

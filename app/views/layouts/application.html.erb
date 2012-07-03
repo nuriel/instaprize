@@ -49,13 +49,13 @@
 					<p class="navbar-text">#mazeh9art competition</p>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-							<%= image_tag 'icon_camera.png', size: "40x40" %>
+							<a data-toggle="modal" href="#shoot" ><%= image_tag 'icon_camera.png', size: "40x40" %></a>
             </ul>
 						<ul class="nav">
-							<%= image_tag 'icon_heart.png', size: "40x40" %>
+							<a data-toggle="modal" href="#vote" ><%= image_tag 'icon_heart.png', size: "40x40" %></a>
             </ul>
 						<ul class="nav">
-							<%= image_tag 'icon_trophy.png', size: "40x40" %>
+							<a data-toggle="modal" href="#win" ><%= image_tag 'icon_trophy.png', size: "40x40" %></a>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -85,25 +85,62 @@
       </footer>
 
     </div> <!-- /container -->	
+		
 		<div class="modal hide static" id="results_modal">
 		  <div class="modal-header">
 		  	<h3>Instaprize / Results! / #Mazeh9Art</h3>
 		  </div>
 		  <div class="modal-body">
-		  <div id="mobile_content">  
-			  <div class="alert alert-success"><h2>Next vote is coming up in <span id="time_left">few</span> seconds...</h2></div>
-				<div class="alert alert-info"><h4>visit our big screens for contest results</h4></div>
-				<p>or wait for the beta to see it here... ;)</p>
-		  </div>
-		  <div id="screen_content">
-		  	SCREEN RESULTS
-		  </div>
+		  	<div id="mobile_content">  
+				  <div class="alert alert-success"><h2>Next vote is coming up in <span id="time_left">few</span> seconds...</h2></div>
+					<div class="alert alert-info"><h4>visit our big screens for contest results</h4></div>
+					<p>or wait for the beta to see it here... ;)</p>
+			  </div>
+			  <div id="screen_content">
+			  	<!-- SCREEN RESULTS -->
+			  </div>
 			
 			<!-- <div class="modal-footer">
 		    <a href="#" class="btn" data-dismiss="modal">Close</a>
 		    <a href="#" class="btn btn-primary">Save changes</a>
 		  </div> -->
-		</div></div>
+			</div>
+		</div>
+
+		<div class="modal hide static" id="shoot">
+		  <div class="modal-header">
+		  	<h3>Instaprize / Shoot / #Mazeh9Art</h3>
+		  </div>
+		  <div class="modal-body">
+				celebrate the things that are important to you. <br></br>
+				take a snapshot that will make them understand.
+			</div>
+		</div>
+
+		<div class="modal hide static" id="vote">
+		  <div class="modal-header">
+		  	<h3>Instaprize / Vote / #Mazeh9Art</h3>
+		  </div>
+		  <div class="modal-body">
+				and you might just win a cool price: <br></br>
+				PICTURE
+			</div>
+		</div>
+
+		<div class="modal hide static" id="win">
+		  <div class="modal-header">
+		  	<h3>Instaprize / Win / #Mazeh9Art</h3>
+		  </div>
+		  <div class="modal-body">
+				celebrate the things that are important to you. <br></br>
+				take a snapshot that will make them understand.
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn" data-dismiss="modal">Close</a>
+		  </div>
+		</div>
+
+
 
 	</body>
 </html>

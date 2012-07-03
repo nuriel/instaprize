@@ -1,14 +1,26 @@
 class Contest < ActiveRecord::Base
   has_many :pictures
-  attr_accessible :current_state, :title
+  attr_accessible :current_state, :title, :current_picture
   
   def getNextPictures
     if current_picture == 0 
-      self.current_picture = Picture.all.first.id
+      pictures = Picture.where(voted: false)
+      if pictures.count > 0
+        self.current_picture = pictures.order("created_at desc").first.id
+      end
     else
-      Picture.find(current_picture).voted = true
+      picture = Picture.find(current_picture)
+      picture.update_attribute(voted: true)
+      picture.save
     end
     
-    Picture.where(voted: false).order("created_at desc").limit(10)      
+    pictures = Picture.where(voted: false).order("created_at desc").limit(10)
+    
+    if (pictures.count == 0)
+      Picture.update_all({:voted => true})
+      pictures = Picture.where(voted: false).order("created_at desc").limit(10)
+    end
+    
+    pictures
   end
 end

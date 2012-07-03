@@ -14,9 +14,10 @@ class ScreenController < ApplicationController
     
   end
   
+  #should supply ajax calls to retrieve info
   def admin
     @pictures = Contest.first.getNextPictures()
-
+    
     if @pictures.blank?
       Picture.where(:voted => true).update_all(:voted => false)
       Contest.first.current_picture = 0

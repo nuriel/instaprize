@@ -3,7 +3,7 @@ class Contest < ActiveRecord::Base
   attr_accessible :current_state, :title, :current_picture
   
   def getNextPictures
-    if current_picture == 0 
+    if current_picture.nil? || current_picture == 0 
       pictures = Picture.where(voted: false)
       if pictures.count > 0
         self.current_picture = pictures.order("created_at desc").first.id

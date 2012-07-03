@@ -84,6 +84,7 @@ GEM
     mime-types (1.19)
     multi_json (1.0.4)
     multipart-post (1.1.5)
+    newrelic_rpm (3.4.0.1)
     pg (0.14.0)
     polyglot (0.3.3)
     pusher (0.9.4)
@@ -158,6 +159,7 @@ DEPENDENCIES
   gon
   instagram!
   jquery-rails
+  newrelic_rpm
   pg
   pusher
   rabl

@@ -3,13 +3,13 @@
 		<%= form_for(@vote, remote: true, :html => {"data-type" => :json, :id => "vote_form" }) do |f| %>
 		  <%= f.text_field( :comment, :rows => 3, placeholder: "comment and like?") %>
 			<div class="btn-group" data-toggle="buttons-radio">
-		      <a href="#" class="btn btn-large votes" data-vote-index="0">
+		      <a href="#" class="btn btn-medium votes" data-vote-index="0">
 						<%= image_tag 'dontlike.png' %>nope<span class='badge badge-warning' id='0'>6</span>
 					</a>
-		      <a href="#" class="btn btn-large votes" data-vote-index="2">
+		      <a href="#" class="btn btn-medium votes" data-vote-index="2">
 						<%= image_tag 'soso.png' %>so-so<span class='badge badge-warning' id='2'>22</span>
 					</a>
-		      <a href="#" class="btn btn-large votes" data-vote-index="1">
+		      <a href="#" class="btn btn-medium votes" data-vote-index="1">
 						<%= image_tag 'like.png' %>Like!<span class='badge badge-warning' id='1'>56</span>
 					</a>
 		  </div>

@@ -4,7 +4,7 @@ Instaprize::Application.routes.draw do
   resources :votes
 
   get "screen/index"
-  get "screen/admin"
+  post "screen/admin"
 
   get "mobile/index"
   get "mobile/vote"

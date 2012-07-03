@@ -59,20 +59,32 @@ function setUpNexu(){
 	      console.log(JSON.stringify(payload));
 	    });
 			var sendState = false;
+
 			$("#stop_contest").click(function(){
 				clearInterval(timer2);
 				
 			});
+			$.post('/screen/admin', function(data) {
+				currentState = STATES.STATE1;
+				sec = totalTime;
+				manager.setState(Nexu.SocketChannels.ALL, STATES.STATE1, { 
+					all_pics: data.pictures 
+				});
+			});
 			timer2 = setInterval(function() {
-					
+
 					if (sec == showScoreFor) {
 						currentState = STATES.STATE2;
 						manager.setState(Nexu.SocketChannels.ALL, STATES.STATE2, { time: (sec - showScoreFor) });
 					}
-					else if (sec == 0) {					// restart clock
-						currentState = STATES.STATE1;
-						sec = totalTime;
-						manager.setState(Nexu.SocketChannels.ALL, STATES.STATE1, { time: (sec - showScoreFor) });
+					else if (sec == 0) {					// restart clock and fetch new photos
+						$.post('/screen/admin', function(data) {
+							currentState = STATES.STATE1;
+							sec = totalTime;
+							manager.setState(Nexu.SocketChannels.ALL, STATES.STATE1, { 
+								all_pics: data.pictures 
+							});
+						});					
 					}
 
 					$('#contest_state').text(currentState);
@@ -105,21 +117,6 @@ function setUpNexu(){
 			
 			
 		}
-
-
-    $('#btnSendState1ToScreen').bind('click', function(){
-        manager.setState(Nexu.SocketChannels.SCREEN, STATES.STATE1, { text: 'I am the payload'});
-    });
-
-    $('#btnSendState2ToClient').bind('click', function(){
-        screen.setState(Nexu.SocketChannels.CLIENT, STATES.STATE2, { text: 'I am the payload'});
-    });
-
-    $('#btnSendState3ToAll').bind('click', function(){
-        manager.setState(Nexu.SocketChannels.ALL, STATES.STATE3, { text: 'I am the payload'});
-    });
-
-
 }
 
 
@@ -128,8 +125,9 @@ function clientHandler(state, payload){
 	if (state == STATES.STATE1) {
 		currentState = STATES.STATE1;
 		$('#results_modal').modal('hide');
-		startProgressBar(netTime);
-		$('#pic_main').attr('src',pics[0].images.standard_resolution.url)
+		startProgressBar(netTime - 2);
+		$('#pic_main').attr('src',payload.all_pics[0].picture.url);
+		$('#picture_title').text(payload.all_pics[0].picture.title);
 	}  
 	else if (state == STATES.STATE2){
 		currentState = STATES.STATE2;
@@ -140,8 +138,9 @@ function clientHandler(state, payload){
 function screenHandler(state, payload){
 		sec = payload.time;
 		if (state == STATES.STATE1) {
-			startProgressBar(netTime);
-			currentState = STATES.STATE1;
+			$('#pic_main').attr('src',payload.all_pics[0].picture.url);
+			$('#picture_title').text(payload.all_pics[0].picture.title);
+			startProgressBar(netTime - 2);
 		}
 		else if (state == STATES.STATE2){
 			currentState = STATES.STATE2;

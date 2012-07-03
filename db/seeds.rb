@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Contest.create(title: 'Mazeh9Art')
+Contest.create(title: 'Mazeh9Art', current_state: 0)

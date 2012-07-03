@@ -24,9 +24,10 @@ class ContestsController < ApplicationController
     
     pictures.data.each do |p|
       picture = Picture.find_or_initialize_by_instagram_id(p.id)
-      picture.update_attributes(title: p.caption.text, url: p.images.standard_resolution )
+      picture.update_attributes(title: p.caption.text, url: p.images.standard_resolution.url )
     end
     
+    gon.pics = pictures #Contest.first.getNextPictures()       
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @contest }

@@ -44,13 +44,7 @@ class VotesController < ApplicationController
     
     @vote = Vote.new(params[:vote])
     
-    vote_index = params[:vote][:vote_index]
-    
-    Pusher['test_channel'].trigger!('vote', {
-      vote_index: vote_index,
-      comment: params[:vote][:comment],
-      value: vote_index == 1 ? 1 : 0
-    })
+    #Picture.find(Contest.first.current_picture).votes << @vote
     
     respond_to do |format|
       if @vote.save

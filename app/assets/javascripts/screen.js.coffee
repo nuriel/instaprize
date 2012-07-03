@@ -14,6 +14,5 @@ $(document).ready ->
 		for i in [1..9]
 			$('#pic_strip').append("<img class='thumbnail pull-left' src='#{pics[i].images.thumbnail.url}' alt='' height=50 width=50>")
 		
-	
 	setUpNexu()
 

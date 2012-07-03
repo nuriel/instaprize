@@ -15,6 +15,7 @@ class ScreenController < ApplicationController
   end
   
   def admin
+    @pictures = Contest.first.getNextPictures()
     
     
   end
